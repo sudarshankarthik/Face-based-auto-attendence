@@ -23,6 +23,10 @@ def drawImage(image, location, imageName="image"):
 imageChris, locChris, encodeChris = loadImage('./Base/chris-nolan.jpg')
 imageTest, locTest, encodeTest = loadImage('./Base/christopher-nolan.jpg')
 
+result = face_recognition.compare_faces([encodeChris], encodeTest)
+print(result)
+
 drawImage(imageChris, locChris, "Chris Image")
 drawImage(imageTest, locTest, "Test Image")
+
 
