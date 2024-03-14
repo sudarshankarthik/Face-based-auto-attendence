@@ -3,6 +3,7 @@ import os
 import numpy as np
 
 from face_recgonize import *
+from Attendence import *
 
 path = "Faces"
 images = []
@@ -28,9 +29,9 @@ while True:
         result, distance = compareImages(encodings, encoding)
         matchIndex = np.argmin(distance)
 
-        if distance[matchIndex] < 5:
+        if distance[matchIndex] < 0.5:
             name = names[matchIndex].upper()
-            print(names[matchIndex])
+            markAttendence(names[matchIndex])
 
         drawImage(img, face, name, name)
 
