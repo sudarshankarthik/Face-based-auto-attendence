@@ -17,6 +17,7 @@ def processFrame(image):
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
     faces = face_recognition.face_locations(image)
+
     encodings = face_recognition.face_encodings(image,faces)
 
     return  faces, encodings
@@ -28,7 +29,7 @@ def drawImage(image, location, imageName="image", text=""):
 
     cv2.putText(image, text, (location[3], location[0] - 20), cv2.FONT_HERSHEY_PLAIN, 1, (0,255,0))
     cv2.imshow(imageName, image)
-    cv2.waitKey(0)
+    cv2.waitKey(1)
 
 
 def compareImages(existing,test):
