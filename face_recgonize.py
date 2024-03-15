@@ -26,8 +26,7 @@ def processFrame(image):
 def drawImage(image, location, imageName="image", text=""):
     if location:
         cv2.rectangle(image, (location[3], location[0]), (location[1], location[2]), (0, 255, 0), 2)
-
-    cv2.putText(image, text, (location[3], location[0] - 20), cv2.FONT_HERSHEY_PLAIN, 1, (0,255,0))
+        cv2.putText(image, text, (location[3], location[0] - 20), cv2.FONT_HERSHEY_PLAIN, 1, (0,255,0))
     cv2.imshow(imageName, image)
     cv2.waitKey(1)
 

@@ -23,6 +23,8 @@ cap = cv2.VideoCapture(0)
 
 while True:
     success, img = cap.read()
+    if not success:
+        continue
     cntFaces, cntEncodes = processFrame(img)
     for encoding, face in zip(cntEncodes,cntFaces):
         name = ""
@@ -33,7 +35,7 @@ while True:
             name = names[matchIndex].upper()
             markAttendence(names[matchIndex])
 
-        drawImage(img, face, name, name)
+        drawImage(img, face, "Live feed", name)
 
 
 
